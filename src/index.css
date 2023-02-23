@@ -20,3 +20,47 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+
+/* Mobile Navigation */
+.nav-header {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 320px;
+  padding: 0 1em;
+}
+
+.mobile-nav-toggle {
+  position: fixed;
+  right: 2em;
+  cursor: pointer;
+  height: 32px;
+  width: 32px;
+  z-index: 10;
+}
+
+.nav-list {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding-top: 7em;
+  list-style: none;
+  width: 60%;
+  height: 100vh;
+  background-color: gray;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1em;
+
+  transform: translateX(100%);
+  transition: transform 500ms ease-in-out;
+}
+
+.nav-list[data-visible="true"] {
+  transform: translateX(0);
+}
