@@ -6,7 +6,7 @@ function Introduction() {
   return (
     <section className="cf-intro">
       <img className="product-icon" src={icon} alt="mastercraft-icon" />
-      <h2 className="product-name">Mastercraft Bamboo Monitor Riser</h2>
+      <h2 className="product-title">Mastercraft Bamboo Monitor Riser</h2>
       <p className="intro-desc">
         A beautiful & handcrafted monitor stand to reduce neck and eye strain.
       </p>

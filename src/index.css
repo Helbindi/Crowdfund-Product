@@ -31,7 +31,14 @@ body {
 }
 
 .cf-items {
-  min-width: 100%;
+  top: -6em;
+  position: relative;
+  margin: 0 1em;
+  padding-bottom: 5em;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
 }
 
 /* Hero CSS */
@@ -60,6 +67,9 @@ body {
   justify-content: space-between;
   min-width: 320px;
   padding: 0 1em;
+  width: 100%;
+  z-index: 99;
+  background-color: var(--dark-cyan-clr);
 }
 
 .mobile-nav-toggle {
@@ -79,7 +89,8 @@ body {
   list-style: none;
   width: 100%;
   height: 200px;
-  background-color: hsl(176, 72%, 28%, 0.5);
+  color: var(--white-clr);
+  background-color: hsl(0, 0%, 0%, 0.9);
 
   display: flex;
   flex-direction: row;
@@ -102,12 +113,9 @@ body {
 /* Intro CSS */
 .cf-intro {
   border: 2px solid red;
-  top: -7em;
-  position: relative;
-  background-color: var(--white-clr);
   padding: 1em;
-  margin: 0 1em;
   border-radius: 1em;
+  background-color: var(--white-clr);
 
   display: flex;
   flex-direction: column;
@@ -163,6 +171,68 @@ body {
   display: none;
 }
 
+/* Progress CSS */
+.cf-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+  padding: 2em;
+  border: 2px solid aqua;
+  border-radius: 1em;
+  background-color: var(--white-clr);
+  min-width: 375px;
+}
+
+.data-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.data-item h2 {
+  margin: 0;
+  color: var(--cyan-clr);
+}
+
+.data-item p {
+  margin: 0;
+  color: var(--dark-gray-clr);
+}
+
+.data-list hr {
+  margin: 1.5em;
+  height: 2px;
+  width: 100px;
+  border-style: none;
+  background-color: var(--dark-gray-clr);
+}
+
+.progress-bar {
+  position: relative;
+  width: 100%;
+  margin: 1em 0;
+}
+
+.progress {
+  position: absolute;
+  content: "";
+  height: 15px;
+  border-radius: 1em;
+}
+
+.current {
+  background-color: var(--cyan-clr);
+  z-index: 2;
+}
+
+.total {
+  width: 100%;
+  background-color: var(--dark-gray-clr);
+}
+
 @media screen and (min-width: 728px) {
   .hero-container {
     background-image: url("/src/assets/images/image-hero-desktop.jpg");
@@ -171,6 +241,7 @@ body {
     background-repeat: no-repeat;
   }
 
+  /* Navigation CSS */
   .nav-header {
     justify-content: center;
     gap: 40%;
@@ -200,7 +271,13 @@ body {
   }
 
   .cf-items {
-    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Intro CSS */
+  .cf-intro {
   }
 
   .product-group {
@@ -222,5 +299,16 @@ body {
     align-items: center;
     justify-content: center;
     gap: 1em;
+  }
+
+  /* Progress Bar */
+  .data-list {
+    flex-direction: row;
+  }
+
+  .data-list hr {
+    margin: 0 2em;
+    width: 2px;
+    height: 70px;
   }
 }
