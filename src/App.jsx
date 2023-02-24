@@ -4,6 +4,7 @@ import Navigation from "./components/Navigation";
 import Hero from "./components/Hero";
 import Introduction from "./components/Introduction";
 import Progress from "./components/Progress";
+import About from "./components/About";
 
 function App() {
   const [pledge, setPledge] = useState({
@@ -23,6 +24,7 @@ function App() {
       <section className="cf-items">
         <Introduction />
         <Progress pledge={pledge} />
+        <About />
       </section>
     </div>
   );

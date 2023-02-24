@@ -1,8 +1,9 @@
 import React from "react";
+import Card from "./Card";
 
 function About() {
   return (
-    <section className="cf-about">
+    <Card>
       <article className="about-intro">
         <h2>About this product</h2>
         <p>
@@ -20,7 +21,7 @@ function About() {
       </article>
 
       <section className="pledge-list"></section>
-    </section>
+    </Card>
   );
 }
 

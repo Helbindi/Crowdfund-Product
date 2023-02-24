@@ -1,10 +1,11 @@
 import React from "react";
+import Card from "./Card";
 import icon from "../assets/images/logo-mastercraft.svg";
 import bookmark from "../assets/images/icon-bookmark.svg";
 
 function Introduction() {
   return (
-    <section className="cf-intro">
+    <Card>
       <img className="product-icon" src={icon} alt="mastercraft-icon" />
       <h2 className="product-title">Mastercraft Bamboo Monitor Riser</h2>
       <p className="intro-desc">
@@ -17,7 +18,7 @@ function Introduction() {
           <p className="bookmark-title">Bookmark</p>
         </div>
       </div>
-    </section>
+    </Card>
   );
 }
 

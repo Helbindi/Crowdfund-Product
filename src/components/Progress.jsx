@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "./Card";
 
 function Progress({ pledge }) {
   let current = Number(pledge.money.current);
@@ -6,7 +7,7 @@ function Progress({ pledge }) {
   let percentReached = Math.round((current / target) * 100);
 
   return (
-    <section className="cf-data">
+    <Card>
       <article className="data-list">
         <div className="data-item">
           <h2>${pledge.money.current.toLocaleString("en-US")}</h2>
@@ -32,7 +33,7 @@ function Progress({ pledge }) {
         </div>
         <div className="total progress">{/* Total Progress Bar */}</div>
       </article>
-    </section>
+    </Card>
   );
 }
 

@@ -41,6 +41,21 @@ body {
   gap: 2em;
 }
 
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1em;
+
+  padding: 2em;
+  border: 2px solid red;
+  border-radius: 1em;
+  background-color: var(--white-clr);
+  min-width: 375px;
+}
+
 /* Hero CSS */
 .hero-container {
   height: 40vh;
@@ -111,19 +126,6 @@ body {
 }
 
 /* Intro CSS */
-.cf-intro {
-  border: 2px solid red;
-  padding: 1em;
-  border-radius: 1em;
-  background-color: var(--white-clr);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
 .product-icon {
   position: absolute;
   top: -1em;
@@ -172,18 +174,6 @@ body {
 }
 
 /* Progress CSS */
-.cf-data {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1em;
-  padding: 2em;
-  border: 2px solid aqua;
-  border-radius: 1em;
-  background-color: var(--white-clr);
-  min-width: 375px;
-}
-
 .data-list {
   display: flex;
   flex-direction: column;
@@ -232,6 +222,8 @@ body {
   width: 100%;
   background-color: var(--dark-gray-clr);
 }
+
+/* About CSS */
 
 @media screen and (min-width: 728px) {
   .hero-container {
