@@ -3,6 +3,7 @@ import "./index.css";
 import Navigation from "./components/Navigation";
 import Hero from "./components/Hero";
 import Introduction from "./components/Introduction";
+import Back from "./components/Back";
 import Progress from "./components/Progress";
 import About from "./components/About";
 
@@ -37,13 +38,24 @@ function App() {
     },
   ]);
 
+  const [isBacking, setIsBacking] = useState(false);
+
+  function handleBack(e) {
+    e.preventDefault();
+    if (!isBacking) {
+      setIsBacking(true);
+    } else {
+      setIsBacking(false);
+    }
+  }
   return (
     <div className="cf-container">
       <Navigation />
       <Hero />
+      {isBacking && <Back pledges={pledges} handleBack={handleBack} />}
 
       <section className="cf-items">
-        <Introduction />
+        <Introduction handleBack={handleBack} />
         <Progress data={data} />
         <About pledges={pledges} />
       </section>
