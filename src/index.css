@@ -1,28 +1,58 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Commissioner, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: var(--font-bold-400);
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --cyan-clr: hsl(176, 50%, 47%);
+  --dark-cyan-clr: hsl(176, 72%, 28%);
+  --black-clr: hsl(0, 0%, 0%);
+  --white-clr: hsl(0, 0%, 100%);
+  --dark-gray-clr: hsl(0, 0%, 48%);
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  --font-bold-400: 400;
+  --font-bold-500: 500;
+  --font-bold-700: 700;
 }
 
 body {
   padding: 0;
   margin: 0;
+  font-size: 16px;
   min-width: 320px;
   min-height: 100vh;
 }
 
+.cf-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+  min-height: 100vh;
+  background-color: #fafafa;
+}
+
+.cf-items {
+  min-width: 100%;
+}
+
+/* Hero CSS */
+.hero-container {
+  height: 40vh;
+
+  background-image: url("/src/assets/images/image-hero-mobile.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero-image {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
 /* Mobile Navigation */
 .nav-header {
+  color: var(--white-clr);
   position: fixed;
   display: flex;
   flex-direction: row;
@@ -46,21 +76,151 @@ body {
   top: 0;
   right: 0;
   margin: 0;
-  padding-top: 7em;
   list-style: none;
-  width: 60%;
-  height: 100vh;
-  background-color: gray;
+  width: 100%;
+  height: 200px;
+  background-color: hsl(176, 72%, 28%, 0.5);
 
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 1em;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
 
-  transform: translateX(100%);
+  transform: translateY(-100%);
   transition: transform 500ms ease-in-out;
 }
 
 .nav-list[data-visible="true"] {
-  transform: translateX(0);
+  transform: translateY(0);
+}
+
+.nav-item {
+  cursor: pointer;
+}
+
+/* Intro CSS */
+.cf-intro {
+  border: 2px solid red;
+  top: -7em;
+  position: relative;
+  background-color: var(--white-clr);
+  padding: 1em;
+  margin: 0 1em;
+  border-radius: 1em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.product-icon {
+  position: absolute;
+  top: -1em;
+}
+
+.product-name {
+  margin: 0;
+  padding-top: 2em;
+}
+
+.intro-desc {
+  color: var(--dark-gray-clr);
+}
+
+.product-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.back-btn {
+  outline: none;
+  border-style: none;
+  border-radius: 3em;
+  height: 48px;
+  width: 200px;
+  color: var(--white-clr);
+  font-weight: var(--font-bold-700);
+  background-color: var(--cyan-clr);
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background-color: var(--dark-cyan-clr);
+}
+
+.bookmark-img {
+  height: 48px;
+  cursor: pointer;
+}
+
+.bookmark-title {
+  display: none;
+}
+
+@media screen and (min-width: 728px) {
+  .hero-container {
+    background-image: url("/src/assets/images/image-hero-desktop.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .nav-header {
+    justify-content: center;
+    gap: 40%;
+    width: 100%;
+    padding: 0 1em;
+  }
+
+  .mobile-nav-toggle {
+    display: none;
+  }
+
+  .nav-list {
+    display: flex;
+    position: initial;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+    background-color: initial;
+    transform: none;
+    height: initial;
+  }
+
+  .nav-list[data-visible="true"] {
+    transform: none;
+  }
+
+  .cf-items {
+    max-width: 900px;
+  }
+
+  .product-group {
+    justify-content: space-between;
+  }
+
+  .bookmark-title {
+    color: var(--dark-gray-clr);
+    font-weight: var(--font-bold-700);
+    display: block;
+  }
+
+  .bookmark-items {
+    background-color: #fafafa;
+    padding-right: 1.5em;
+    border-radius: 2em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+  }
 }
