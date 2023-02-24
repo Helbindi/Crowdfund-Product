@@ -22,6 +22,16 @@ body {
   min-height: 100vh;
 }
 
+h2 {
+  margin: 0;
+  color: var(--black-clr);
+  font-weight: var(--font-bold-700);
+}
+
+p {
+  color: var(--dark-gray-clr);
+}
+
 .cf-container {
   display: flex;
   flex-direction: column;
@@ -53,11 +63,11 @@ body {
   border: 2px solid red;
   border-radius: 1em;
   background-color: var(--white-clr);
-  min-width: 375px;
 }
 
 /* Hero CSS */
 .hero-container {
+  margin-top: 4em;
   height: 40vh;
 
   background-image: url("/src/assets/images/image-hero-mobile.jpg");
@@ -74,54 +84,63 @@ body {
 
 /* Mobile Navigation */
 .nav-header {
-  color: var(--white-clr);
   position: fixed;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   min-width: 320px;
-  padding: 0 1em;
+  padding: 1em;
   width: 100%;
   z-index: 99;
   background-color: var(--dark-cyan-clr);
+}
+
+.nav-header h2 {
+  color: var(--white-clr);
 }
 
 .mobile-nav-toggle {
   position: fixed;
   right: 2em;
   cursor: pointer;
-  height: 32px;
-  width: 32px;
+  height: 24px;
+  width: 24px;
   z-index: 10;
 }
 
 .nav-list {
   position: fixed;
   top: 0;
-  right: 0;
-  margin: 0;
-  list-style: none;
-  width: 100%;
-  height: 200px;
-  color: var(--white-clr);
-  background-color: hsl(0, 0%, 0%, 0.9);
+  left: 1em;
+  right: 1em;
+  margin: 1em;
+  padding: 0;
 
+  list-style: none;
+  border-radius: 1em;
+  height: 250px;
+  font-weight: var(--font-bold-700);
+  color: var(--black-clr);
+  background-color: var(--white-clr);
+  border: 5px solid var(--dark-cyan-clr);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2em;
 
-  transform: translateY(-100%);
+  transform: translateY(-120%);
   transition: transform 500ms ease-in-out;
 }
 
 .nav-list[data-visible="true"] {
-  transform: translateY(0);
+  transform: translateY(25%);
 }
 
 .nav-item {
+  padding: 0.5em 1em;
+  border-bottom: 2px solid var(--dark-cyan-clr);
   cursor: pointer;
 }
 
@@ -131,13 +150,13 @@ body {
   top: -1em;
 }
 
+.product-title {
+  margin-top: 1em;
+}
+
 .product-name {
   margin: 0;
   padding-top: 2em;
-}
-
-.intro-desc {
-  color: var(--dark-gray-clr);
 }
 
 .product-group {
@@ -183,13 +202,11 @@ body {
 }
 
 .data-item h2 {
-  margin: 0;
   color: var(--cyan-clr);
 }
 
 .data-item p {
   margin: 0;
-  color: var(--dark-gray-clr);
 }
 
 .data-list hr {
@@ -224,6 +241,73 @@ body {
 }
 
 /* About CSS */
+.about-section {
+  text-align: left;
+}
+
+.pledge-list {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 1em;
+}
+
+.pledge-item {
+  border-radius: 1em;
+  border: 2px solid var(--dark-gray-clr);
+  padding: 1em 2em;
+}
+
+.pledge-name {
+  font-weight: var(--font-bold-700);
+  color: var(--black-clr);
+}
+
+.pledge-cost {
+  color: var(--cyan-clr);
+  font-weight: var(--font-bold-500);
+}
+
+.pledge-item h2 {
+  color: var(--dark-gray-clr);
+  font-size: 1.2rem;
+}
+
+.pledge-item strong {
+  color: var(--black-clr);
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+.pledge-btn {
+  margin: 1em 0;
+  border-style: none;
+  border-radius: 2em;
+  color: var(--white-clr);
+  background-color: var(--cyan-clr);
+  font-weight: var(--font-bold-700);
+  height: 50px;
+  width: 150px;
+  cursor: pointer;
+}
+
+.pledgeable:hover {
+  background-color: var(--dark-cyan-clr);
+}
+
+.disabled {
+  background-color: var(--dark-gray-clr);
+  cursor: initial;
+}
+
+.disabled {
+  background-color: var(--dark-gray-clr);
+  cursor: initial;
+}
+
+.out-of-stock {
+  filter: grayscale(100%);
+}
 
 @media screen and (min-width: 728px) {
   .hero-container {
@@ -231,6 +315,9 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+
+    margin-top: 4em;
+    height: 50vh;
   }
 
   /* Navigation CSS */
@@ -238,7 +325,7 @@ body {
     justify-content: center;
     gap: 40%;
     width: 100%;
-    padding: 0 1em;
+    padding: 0.5em 1em;
   }
 
   .mobile-nav-toggle {
@@ -252,6 +339,10 @@ body {
     align-items: center;
     justify-content: center;
     padding: 0;
+    margin: 0;
+    gap: 0;
+    color: var(--white-clr);
+
     width: 100%;
     background-color: initial;
     transform: none;
@@ -262,6 +353,10 @@ body {
     transform: none;
   }
 
+  .nav-item {
+    border-bottom: none;
+  }
+
   .cf-items {
     display: flex;
     flex-direction: column;
@@ -269,9 +364,6 @@ body {
   }
 
   /* Intro CSS */
-  .cf-intro {
-  }
-
   .product-group {
     justify-content: space-between;
   }

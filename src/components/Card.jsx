@@ -1,7 +1,7 @@
 import React from "react";
 
 function Card({ children }) {
-  return <div className="product-card">{children}</div>;
+  return <section className="product-card">{children}</section>;
 }
 
 export default Card;

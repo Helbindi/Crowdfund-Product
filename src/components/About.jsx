@@ -1,10 +1,11 @@
 import React from "react";
 import Card from "./Card";
+import Pledge from "./Pledge";
 
-function About() {
+function About({ pledges }) {
   return (
     <Card>
-      <article className="about-intro">
+      <article className="about-section">
         <h2>About this product</h2>
         <p>
           The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform
@@ -20,7 +21,11 @@ function About() {
         </p>
       </article>
 
-      <section className="pledge-list"></section>
+      <section className="pledge-list">
+        {pledges.map((pledge) => (
+          <Pledge pledge={pledge} />
+        ))}
+      </section>
     </Card>
   );
 }
