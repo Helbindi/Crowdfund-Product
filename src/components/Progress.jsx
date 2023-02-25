@@ -2,16 +2,17 @@ import React from "react";
 import Card from "./Card";
 
 function Progress({ data }) {
-  let current = Number(data.money.current);
-  let target = Number(data.money.target);
+  let current = Number(data.current);
+  let target = Number(data.target);
   let percentReached = Math.round((current / target) * 100);
+  if (percentReached > 100) percentReached = 100;
 
   return (
     <Card>
       <article className="data-list">
         <div className="data-item">
-          <h2>${data.money.current.toLocaleString("en-US")}</h2>
-          <p>of ${data.money.target.toLocaleString("en-US")} backed</p>
+          <h2>${data.current.toLocaleString("en-US")}</h2>
+          <p>of ${data.target.toLocaleString("en-US")} backed</p>
         </div>
         <hr />
         <div className="data-item">

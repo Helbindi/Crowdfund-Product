@@ -2,6 +2,7 @@
   font-family: Commissioner, sans-serif;
   line-height: 1.5;
   font-weight: var(--font-bold-400);
+  scroll-behavior: smooth;
 
   --cyan-clr: hsl(176, 50%, 47%);
   --dark-cyan-clr: hsl(176, 72%, 28%);
@@ -33,6 +34,7 @@ p {
 }
 
 .cf-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-width: 100%;
@@ -59,7 +61,6 @@ p {
   gap: 1em;
 
   padding: 2em;
-  border: 2px solid red;
   border-radius: 1em;
   background-color: var(--white-clr);
 }
@@ -194,13 +195,18 @@ p {
 /* Back Pledge CSS */
 .back-container {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   top: 0;
-  padding: 5em 0;
+  padding-top: 120px;
+  height: 100%;
   background-color: hsl(0, 0%, 0%, 0.7);
   z-index: 20;
 }
 
 .back-pledge {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -213,8 +219,10 @@ p {
 
 .back-close {
   position: absolute;
+  cursor: pointer;
   margin-top: 10px;
-  right: 45px;
+  right: 55px;
+  transform: scale(1.5);
 }
 
 .back-items {
@@ -238,6 +246,39 @@ p {
   margin-left: 10px;
   color: var(--black-clr);
   font-weight: var(--font-bold-700);
+}
+
+.pledge-amount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1em;
+  border-top: 2px solid var(--dark-gray-clr);
+}
+
+.pledge-amount input[type="number"] {
+  text-align: center;
+  border-radius: 2em;
+  font-size: 1.1rem;
+  height: 40px;
+  width: 50%;
+  font-weight: var(--font-bold-700);
+  border-color: var(--dark-cyan-clr);
+}
+
+.pledge-form {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.pledge-form p {
+  font-weight: var(--font-bold-700);
+  position: absolute;
+  left: 5%;
 }
 
 /* Progress CSS */
@@ -327,7 +368,7 @@ p {
   margin-right: 10px;
 }
 
-.pledge-btn {
+.btn {
   margin: 1em 0;
   border-style: none;
   border-radius: 2em;
@@ -358,6 +399,18 @@ p {
 }
 
 @media screen and (min-width: 728px) {
+  .cf-container {
+    align-items: center;
+  }
+
+  .cf-items {
+    top: -7em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 900px;
+  }
+
   .hero-container {
     background-image: url("/src/assets/images/image-hero-desktop.jpg");
     background-position: center;
@@ -365,6 +418,7 @@ p {
     background-repeat: no-repeat;
 
     margin-top: 4em;
+    width: 100%;
     height: 50vh;
   }
 
@@ -405,12 +459,6 @@ p {
     border-bottom: none;
   }
 
-  .cf-items {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
   /* Intro CSS */
   .product-group {
     justify-content: space-between;
@@ -431,6 +479,35 @@ p {
     align-items: center;
     justify-content: center;
     gap: 1em;
+  }
+
+  /* Back Pledge CSS */
+  .back-container {
+    width: 100%;
+  }
+
+  .back-pledge {
+    max-width: 900px;
+  }
+
+  .back-close {
+    right: 100px;
+  }
+
+  .pledge-item {
+    position: relative;
+  }
+
+  .pledge-cost {
+    position: absolute;
+    top: 0;
+    right: 2em;
+  }
+
+  .pledge-btn {
+    position: absolute;
+    bottom: 0;
+    right: 2em;
   }
 
   /* Progress Bar */

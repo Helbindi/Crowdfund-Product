@@ -1,14 +1,54 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import close from "../assets/images/icon-close-modal.svg";
 
-function Back({ pledges, handleBack }) {
+function Back({
+  pledges,
+  handleBack,
+  setIsBacking,
+  updateData,
+  updatePledges,
+}) {
   const [selected, setSelected] = useState();
+  const [pledgeAmount, setPledgeAmount] = useState();
+  const topRef = useRef();
+
+  function handleSelect(e) {
+    setSelected(e.target.value);
+    setPledgeAmount(e.target.value);
+  }
 
   function handleChange(e) {
-    setSelected(e.target.value);
+    e.preventDefault();
+    setPledgeAmount(e.target.value);
   }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    let pledge;
+    if (selected > 0) {
+      pledge = pledges.filter((pledge) => {
+        return pledge.baseCost == selected;
+      });
+    } else {
+      pledge = [
+        {
+          name: "Pledge with no Reward",
+          baseCost: 0,
+          desc: "Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to recieve product updates via email.",
+          remaining: null,
+        },
+      ];
+    }
+    updatePledges(pledge[0]);
+    updateData(pledgeAmount);
+    setIsBacking();
+  }
+
+  useEffect(() => {
+    topRef.current.scrollIntoView();
+  }, []);
   return (
-    <div className="back-container">
+    <div className="back-container" ref={topRef}>
       <section className="back-pledge">
         <img
           className="back-close"
@@ -28,21 +68,42 @@ function Back({ pledges, handleBack }) {
               type="radio"
               name="pledge-type"
               id="0"
-              value="0"
-              onChange={(e) => handleChange(e)}
+              value={0}
+              onChange={(e) => handleSelect(e)}
             />
-            <label for="0">Pledge with no reward</label>
+            <label htmlFor="0">Pledge with no reward</label>
             <p>
               Choose to support us without a reward if you simply believe in our
               project. As a backer, you will be signed up to recieve product
               updates via email.
             </p>
             {selected == 0 && (
-              <button className="pledge-btn pledgeable">Select Reward</button>
+              <div className="pledge-amount">
+                <p>Enter your pledge:</p>
+                <form className="pledge-form" onSubmit={handleSubmit}>
+                  <p>$</p>
+                  <input
+                    type="number"
+                    name="pledge-value"
+                    htmlFor="pledge-value"
+                    id="0"
+                    defaultValue={0}
+                    min={0}
+                    max={99999}
+                    onInput={handleChange}
+                  />
+                  <input
+                    className="submit-btn btn pledgeable"
+                    type="submit"
+                    value="Pledge"
+                  />
+                </form>
+              </div>
             )}
           </article>
-          {pledges.map((pledge) => (
+          {pledges?.map((pledge) => (
             <article
+              key={pledge.name}
               className={`pledge-item ${
                 pledge.remaining > 0 ? "" : "out-of-stock"
               }`}
@@ -53,9 +114,9 @@ function Back({ pledges, handleBack }) {
                 id={pledge.baseCost}
                 value={pledge.baseCost}
                 disabled={pledge.remaining <= 0}
-                onChange={(e) => handleChange(e)}
+                onChange={(e) => handleSelect(e)}
               />
-              <label for={pledge.baseCost}>{pledge.name}</label>
+              <label htmlFor={pledge.baseCost}>{pledge.name}</label>
               <p className="pledge-cost">Pledge ${pledge.baseCost} or more</p>
               <p>{pledge.desc}</p>
               <h2>
@@ -63,11 +124,29 @@ function Back({ pledges, handleBack }) {
               </h2>
               {selected == pledge.baseCost &&
                 (pledge.remaining > 0 ? (
-                  <button className="pledge-btn pledgeable">
-                    Select Reward
-                  </button>
+                  <div className="pledge-amount">
+                    <p>Enter your pledge:</p>
+                    <form className="pledge-form" onSubmit={handleSubmit}>
+                      <p>$</p>
+                      <input
+                        type="number"
+                        name="pledge-value"
+                        htmlFor="pledge-value"
+                        id={pledge.baseCost}
+                        defaultValue={pledge.baseCost}
+                        min={pledge.baseCost}
+                        max={99999}
+                        onInput={handleChange}
+                      />
+                      <input
+                        className="submit-btn btn pledgeable"
+                        type="submit"
+                        value="Pledge"
+                      />
+                    </form>
+                  </div>
                 ) : (
-                  <button className="pledge-btn disabled" disabled="true">
+                  <button className="submit-btn btn disabled" disabled="true">
                     Out of Stock
                   </button>
                 ))}

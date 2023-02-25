@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card";
 import Pledge from "./Pledge";
 
-function About({ pledges }) {
+function About({ pledges, handleBack }) {
   return (
     <Card>
       <article className="about-section">
@@ -22,8 +22,8 @@ function About({ pledges }) {
       </article>
 
       <section className="pledge-list">
-        {pledges.map((pledge) => (
-          <Pledge pledge={pledge} />
+        {pledges?.map((pledge) => (
+          <Pledge key={pledge.name} pledge={pledge} handleBack={handleBack} />
         ))}
       </section>
     </Card>

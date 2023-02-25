@@ -1,30 +1,16 @@
 import React, { useState } from "react";
 
-function Pledge({ pledge }) {
-  const [isActive, setIsActive] = useState(false);
-
+function Pledge({ pledge, handleBack }) {
   const pledgeBtn =
     pledge.remaining > 0 ? (
-      <button
-        className="pledge-btn pledgeable"
-        onClick={(e) => handleActive(e)}
-      >
+      <button className="pledge-btn btn pledgeable" onClick={handleBack}>
         Select Reward
       </button>
     ) : (
-      <button className="pledge-btn disabled" disabled="true">
+      <button className="pledge-btn btn disabled" disabled={true}>
         Out of Stock
       </button>
     );
-
-  function handleActive(e) {
-    e.preventDefault();
-    if (!isActive) {
-      setIsActive(true);
-    } else {
-      setIsActive(false);
-    }
-  }
   return (
     <article
       className={`pledge-item ${pledge.remaining > 0 ? "" : "out-of-stock"}`}

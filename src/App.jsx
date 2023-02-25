@@ -9,10 +9,8 @@ import About from "./components/About";
 
 function App() {
   const [data, setData] = useState({
-    money: {
-      current: 89914,
-      target: 100000,
-    },
+    current: 89914,
+    target: 100000,
     backers: 5007,
     daysRemaining: 56,
   });
@@ -48,16 +46,45 @@ function App() {
       setIsBacking(false);
     }
   }
+
+  function updateData(amount) {
+    setData((prev) => {
+      return {
+        ...prev,
+        current: prev.current + Number(amount),
+        backers: prev.backers + 1,
+      };
+    });
+  }
+
+  function updatePledges(selected) {
+    setPledges((prev) => {
+      prev.forEach((pledge) => {
+        if (pledge.baseCost == selected.baseCost) {
+          pledge.remaining--;
+        }
+      });
+      return prev;
+    });
+  }
   return (
     <div className="cf-container">
       <Navigation />
       <Hero />
-      {isBacking && <Back pledges={pledges} handleBack={handleBack} />}
+      {isBacking && (
+        <Back
+          pledges={pledges}
+          handleBack={handleBack}
+          setIsBacking={setIsBacking}
+          updateData={updateData}
+          updatePledges={updatePledges}
+        />
+      )}
 
       <section className="cf-items">
         <Introduction handleBack={handleBack} />
         <Progress data={data} />
-        <About pledges={pledges} />
+        <About pledges={pledges} handleBack={handleBack} />
       </section>
     </div>
   );
