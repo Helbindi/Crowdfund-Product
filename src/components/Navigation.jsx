@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import menu from "../assets/images/icon-hamburger.svg";
 import close from "../assets/images/icon-close-menu.svg";
+import logo from "../assets/images/logo.svg";
 
 function Navigation() {
   const [isToggled, setIsToggled] = useState(false);
@@ -24,7 +25,7 @@ function Navigation() {
   }
   return (
     <header className="nav-header">
-      <h2>crowdfund</h2>
+      <img src={logo} alt="logo-img" />
       <img
         className="mobile-nav-toggle"
         src={toggleImg}
