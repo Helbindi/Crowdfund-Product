@@ -6,6 +6,7 @@ import Introduction from "./components/Introduction";
 import Back from "./components/Back";
 import Progress from "./components/Progress";
 import About from "./components/About";
+import ThankYou from "./components/ThankYou";
 
 function App() {
   const [data, setData] = useState({
@@ -37,6 +38,7 @@ function App() {
   ]);
 
   const [isBacking, setIsBacking] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   function handleBack(e) {
     e.preventDefault();
@@ -78,8 +80,10 @@ function App() {
           setIsBacking={setIsBacking}
           updateData={updateData}
           updatePledges={updatePledges}
+          setIsSubmitted={setIsSubmitted}
         />
       )}
+      {isSubmitted && <ThankYou setIsSubmitted={setIsSubmitted} />}
 
       <section className="cf-items">
         <Introduction handleBack={handleBack} />

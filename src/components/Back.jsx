@@ -7,6 +7,7 @@ function Back({
   setIsBacking,
   updateData,
   updatePledges,
+  setIsSubmitted,
 }) {
   const [selected, setSelected] = useState();
   const [pledgeAmount, setPledgeAmount] = useState();
@@ -41,7 +42,8 @@ function Back({
     }
     updatePledges(pledge[0]);
     updateData(pledgeAmount);
-    setIsBacking();
+    setIsBacking(false);
+    setIsSubmitted(true);
   }
 
   useEffect(() => {

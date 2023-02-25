@@ -4,8 +4,8 @@
   font-weight: var(--font-bold-400);
   scroll-behavior: smooth;
 
-  --cyan-clr: hsl(176, 50%, 47%);
-  --dark-cyan-clr: hsl(176, 72%, 28%);
+  --cyan-clr: #3cb4ac;
+  --dark-cyan-clr: #147b74;
   --black-clr: hsl(0, 0%, 0%);
   --white-clr: hsl(0, 0%, 100%);
   --dark-gray-clr: hsl(0, 0%, 48%);
@@ -183,6 +183,10 @@ p {
   background-color: var(--dark-cyan-clr);
 }
 
+.bookmark-items {
+  cursor: pointer;
+}
+
 .bookmark-img {
   height: 48px;
   cursor: pointer;
@@ -190,6 +194,10 @@ p {
 
 .bookmark-title {
   display: none;
+}
+
+.bookmarked p {
+  color: var(--cyan-clr);
 }
 
 /* Back Pledge CSS */
@@ -221,7 +229,7 @@ p {
   position: absolute;
   cursor: pointer;
   margin-top: 10px;
-  right: 55px;
+  right: 10%;
   transform: scale(1.5);
 }
 
@@ -398,6 +406,36 @@ p {
   filter: grayscale(100%);
 }
 
+/* Thanks CSS */
+.thank-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsl(0, 0%, 0%, 0.5);
+  z-index: 60;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.thank-prompt {
+  position: absolute;
+  top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--white-clr);
+  padding: 2em 1em;
+  margin: 1em;
+  border-radius: 1em;
+  width: 100%;
+  max-width: 700px;
+}
+
 @media screen and (min-width: 728px) {
   .cf-container {
     align-items: center;
@@ -490,10 +528,6 @@ p {
     max-width: 900px;
   }
 
-  .back-close {
-    right: 100px;
-  }
-
   .pledge-item {
     position: relative;
   }
@@ -510,6 +544,10 @@ p {
     right: 2em;
   }
 
+  .pledge-item label:hover {
+    color: var(--cyan-clr);
+  }
+
   /* Progress Bar */
   .data-list {
     flex-direction: row;
@@ -519,5 +557,9 @@ p {
     margin: 0 2em;
     width: 2px;
     height: 70px;
+  }
+
+  .thank-prompt {
+    top: 10%;
   }
 }

@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "./Card";
 import icon from "../assets/images/logo-mastercraft.svg";
 import bookmark from "../assets/images/icon-bookmark.svg";
+import bookmarked from "../assets/images/bookmarked.svg";
 
 function Introduction({ handleBack }) {
+  const [isBookmark, setIsBookmark] = useState(false);
+
+  const bookmarkImg = isBookmark ? bookmarked : bookmark;
+
+  function handleClick(e) {
+    e.preventDefault();
+    isBookmark ? setIsBookmark(false) : setIsBookmark(true);
+  }
   return (
     <Card>
       <img className="product-icon" src={icon} alt="mastercraft-icon" />
@@ -15,9 +24,16 @@ function Introduction({ handleBack }) {
         <button className="back-btn" onClick={handleBack}>
           Back this product
         </button>
-        <div className="bookmark-items">
-          <img className="bookmark-img" src={bookmark} alt="" />
-          <p className="bookmark-title">Bookmark</p>
+        <div
+          className={
+            isBookmark ? `bookmark-items bookmarked` : `bookmark-items`
+          }
+          onClick={handleClick}
+        >
+          <img className="bookmark-img" src={bookmarkImg} alt="" />
+          <p className="bookmark-title">
+            {isBookmark ? "Bookmarked" : "Bookmark"}
+          </p>
         </div>
       </div>
     </Card>
