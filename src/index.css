@@ -503,6 +503,7 @@ p {
 
   .nav-item:hover {
     color: var(--cyan-clr);
+    border-bottom: none;
   }
 
   /* Intro CSS */
