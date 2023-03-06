@@ -36,8 +36,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://github.com/Helbindi/Crowdfund-Product]()
-- Live Site URL: [https://helbindi-crowdfunding-page.vercel.app/]()
+- Solution URL: [https://github.com/Helbindi/Crowdfund-Product](https://github.com/Helbindi/Crowdfund-Product)
+- Live Site URL: [https://helbindi-crowdfunding-page.vercel.app/](https://helbindi-crowdfunding-page.vercel.app/)
 
 ## My process
 
@@ -56,5 +56,5 @@ Possible improvements:
 
 ## Author
 
-- Website - [https://my-projects-site.vercel.app/]()
+- Website - [https://my-projects-site.vercel.app/](https://my-projects-site.vercel.app/)
 - Frontend Mentor - [@Helbindi](https://www.frontendmentor.io/profile/Helbind)
